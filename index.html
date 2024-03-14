@@ -83,20 +83,20 @@
       let obtainNumber = document.querySelector("#nun2").value;
       let percentage = (obtainNumber * 100) / totalNumber;
       if (percentage >= 80) {
-        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
-        document.querySelector("#grade").innerHTML = "Your Grade is A+";
+        document.querySelector("#per").innerHTML = `Percentage : <b> ${percentage} </b>`;
+        document.querySelector("#grade").innerHTML = "Your Grade is <b>A+</b>";
       } else if (percentage >= 70 && percentage < 80) {
-        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
-        document.querySelector("#grade").innerHTML = "Your Grade is A";
+        document.querySelector("#per").innerHTML = `Percentage :  <b> ${percentage} </b>`;
+        document.querySelector("#grade").innerHTML = "Your Grade is <b>A </b>";
       } else if (percentage >= 60 && percentage < 70) {
-        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
-        document.querySelector("#grade").innerHTML = "Your Grade is B";
+        document.querySelector("#per").innerHTML = `Percentage :  <b> ${percentage} </b>`;
+        document.querySelector("#grade").innerHTML = "Your Grade is <b>B</b>";
       } else if (percentage >= 50 && percentage < 60) {
-        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
-        document.querySelector("#grade").innerHTML = "Your Grade is C";
+        document.querySelector("#per").innerHTML = `Percentage :  <b> ${percentage} </b>`;
+        document.querySelector("#grade").innerHTML = "Your Grade is <b>C </b>";
       } else if (percentage < 50) {
-        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
-        document.querySelector("#grade").innerHTML = "Your Grade is F";
+        document.querySelector("#per").innerHTML = `Percentage :  <b> ${percentage} </b>`;
+        document.querySelector("#grade").innerHTML = "Your Grade is <b>F </b>";
       } else {
         document.querySelector("#err").innerHTML = "Something Went Wrong";
         console.log("something went wrong");
