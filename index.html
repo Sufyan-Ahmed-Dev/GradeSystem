@@ -1,23 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grading</title>
-    <link rel="stylesheet" href="/index.css">
-</head>
-<body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      #err {
+        color: red;
+      }
+
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
     <div>
-        <form id="myForm">
-            <input type="number" name="num" id="nun" placeholder="Enter Total Number" required>
-            <input type="number" name="num2" id="nun2" placeholder="Enter Obtained Number" required>
-            <button type="submit">Check</button>
-        </form>
+      <form id="myForm">
+        <input
+          type="number"
+          name="num"
+          id="nun"
+          placeholder="Enter Total Number"
+          required
+        />
+        <input
+          type="number"
+          name="num2"
+          id="nun2"
+          placeholder="Enter Obtained Number"
+          required
+        />
+        <button type="submit">Check</button>
+      </form>
     </div>
     <p id="per"></p>
     <p id="grade"></p>
     <p id="err"></p>
-    <script src="./index.js"></script>
-</body>
+  </body>
+  <script>
+    document.querySelector("#myForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      let totalNumber = document.querySelector("#nun").value;
+      let obtainNumber = document.querySelector("#nun2").value;
+      let percentage = (obtainNumber * 100) / totalNumber;
+      if (percentage >= 80) {
+        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
+        document.querySelector("#grade").innerHTML = "Your Grade is A+";
+      } else if (percentage >= 70 && percentage < 80) {
+        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
+        document.querySelector("#grade").innerHTML = "Your Grade is A";
+      } else if (percentage >= 60 && percentage < 70) {
+        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
+        document.querySelector("#grade").innerHTML = "Your Grade is B";
+      } else if (percentage >= 50 && percentage < 60) {
+        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
+        document.querySelector("#grade").innerHTML = "Your Grade is C";
+      } else if (percentage < 50) {
+        document.querySelector("#per").innerHTML = `Percentage : ${percentage}`;
+        document.querySelector("#grade").innerHTML = "Your Grade is F";
+      } else {
+        document.querySelector("#err").innerHTML = "Something Went Wrong";
+        console.log("something went wrong");
+      }
 
+      console.log("Total Number :", totalNumber);
+      console.log("obtain Number :", obtainNumber);
+      console.log(percentage);
+    });
+  </script>
 </html>
